@@ -17,8 +17,7 @@ const AppRoutes = () => {
     { path: "/my-order", element: <MyOrder /> },
     { path: "/my-orders", element: <MyOrders /> },
     { path: "/sign-in", element: <SignIn /> },
-    { path: "/*", element: <NotFound /> }
-
+    { path: "/*", element: <NotFound /> },
   ]);
   return routes;
 };
@@ -26,12 +25,11 @@ const AppRoutes = () => {
 const App = () => {
   return (
     <ShoppinCartProvider>
-<BrowserRouter>
-      <AppRoutes />
-      <Navbar/>
-    </BrowserRouter>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+      </BrowserRouter>
     </ShoppinCartProvider>
-    
   );
 };
 
