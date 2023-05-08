@@ -7,9 +7,11 @@ import './style.css'
 const ProductDetail = () => {
 
     const context = useContext(ShoppinCartContext)
+    console.log('product to show', context.productToShow)
+
     return (
     <aside 
-     className= {`${context.isProductDetailOpen ? 'flex' : 'hidden'}product-detail flex-col fixed right-0 border border-black rounded-lg bg-white`} >
+     className={`${context.isProductDetailOpen ? 'flex' : 'hidden'}product-detail flex-col fixed right-0 border border-black rounded-lg bg-white`} >
     <div className='flex justify-between items-center'>
         <h2 className='font-medium text-xl'> Detail </h2>
         <div>
