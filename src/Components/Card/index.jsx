@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext } from 'react'
 import { ShoppinCartContext } from '../../Context'
+
 const Card = (data) => {
   const context = useContext(ShoppinCartContext)
 
@@ -8,6 +9,8 @@ const Card = (data) => {
     context.openProductDetail()
     context.setProductToShow(productDetail)
   }
+
+  
   return (
     <div
     className='bg-white cursor-pointer w-56 h-60 rounded-lg gap-5'

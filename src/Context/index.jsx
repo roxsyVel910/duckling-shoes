@@ -4,11 +4,12 @@ export const ShoppinCartContext = createContext()
 
 export const ShoppinCartProvider = ({children}) => {
     const [count, setCount] = useState(0)
+
     // Porduct Detail, Open/close
-    const [isProducDetailOPen, setIsProducDetailOPen] = useState(false)
+    const [isProductDetailOPen, setIsProductDetailOPen] = useState(false)
    // console.log('counte',count )
-    const openProductDetail = () => setIsProducDetailOPen(true)
-    const closeProductDetail = () => setIsProducDetailOPen(false)
+    const openProductDetail = () => setIsProductDetailOPen(true)
+    const closeProductDetail = () => setIsProductDetailOPen(false)
     
     //Product Detail, Show product
     const [productToShow, setProductToShow] = useState({})
@@ -20,7 +21,7 @@ export const ShoppinCartProvider = ({children}) => {
             setCount,
             openProductDetail,
             closeProductDetail,
-            isProducDetailOPen,
+            isProductDetailOPen,
             productToShow,
             setProductToShow
         }}>
