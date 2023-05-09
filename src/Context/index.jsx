@@ -1,33 +1,31 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from 'react'
 
-export const ShoppinCartContext = createContext()
+export const ShoppingCartContext = createContext()
 
-export const ShoppinCartProvider = ({children}) => {
-    const [count, setCount] = useState(0)
+export const ShoppingCartProvider = ({children}) => {
+  // Shopping Cart · Increment quantity
+  const [count, setCount] = useState(0)
 
-    // Porduct Detail, Open/close
-    const [isProductDetailOPen, setIsProductDetailOPen] = useState(false)
-   // console.log('counte',count )
-    const openProductDetail = () => setIsProductDetailOPen(true)
-    const closeProductDetail = () => setIsProductDetailOPen(false)
-    
-    //Product Detail, Show product
-    const [productToShow, setProductToShow] = useState({})
+  // Product Detail · Open/Close
+  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
+  const openProductDetail = () => setIsProductDetailOpen(true)
+  const closeProductDetail = () => setIsProductDetailOpen(false)
 
-    
-    return (
-        <ShoppinCartContext.Provider value = {{
-            count,
-            setCount,
-            openProductDetail,
-            closeProductDetail,
-            isProductDetailOPen,
-            productToShow,
-            setProductToShow
-        }}>
-            {children}
-        </ShoppinCartContext.Provider>
-        
-    )
+  // Product Detail · Show product
+  const [productToShow, setProductToShow] = useState({})
 
+  return (
+    <ShoppingCartContext.Provider value={{
+      count,
+      setCount,
+      openProductDetail,
+      closeProductDetail,
+      isProductDetailOpen,
+      productToShow,
+      setProductToShow
+    }}>
+      {children}
+    </ShoppingCartContext.Provider>
+  )
 }
+
