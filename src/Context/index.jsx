@@ -1,45 +1,44 @@
-import { createContext, useState } from 'react'
+import { createContext, useState } from "react";
 
-export const ShoppingCartContext = createContext()
+export const ShoppingCartContext = createContext();
 
-export const ShoppingCartProvider = ({children}) => {
+export const ShoppingCartProvider = ({ children }) => {
   // Shopping Cart · Increment quantity
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   // Product Detail · Open/Close
-  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
-  const openProductDetail = () => setIsProductDetailOpen(true)
-  const closeProductDetail = () => setIsProductDetailOpen(false)
+  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
+  const openProductDetail = () => setIsProductDetailOpen(true);
+  const closeProductDetail = () => setIsProductDetailOpen(false);
 
   // Product Detail · Show product
-  const [productToShow, setProductToShow] = useState({})
+  const [productToShow, setProductToShow] = useState({});
 
   // shopin cart . add product to cart
-  const [cartProducts, setCartProducts] = useState([])
+  const [cartProducts, setCartProducts] = useState([]);
 
-   // Checkout side Menu · Open/Close
-   const [isCheckoutSideMenu, setIsCheckoutSideMenu] = useState(false)
-   const openCheckoutSideMenu = () => setIsCheckoutSideMenu(true)
-   const closeCheckoutSideMenu = () => setIsCheckoutSideMenu(false)
+  // Checkout side Menu · Open/Close
+  const [isCheckoutSideMenu, setIsCheckoutSideMenu] = useState(false);
+  const openCheckoutSideMenu = () => setIsCheckoutSideMenu(true);
+  const closeCheckoutSideMenu = () => setIsCheckoutSideMenu(false);
 
   return (
-    <ShoppingCartContext.Provider value={{
-      count,
-      setCount,
-      openProductDetail,
-      closeProductDetail,
-      isProductDetailOpen,
-      productToShow,
-      setProductToShow,
-      cartProducts,
-      setCartProducts,
-      openCheckoutSideMenu,
-      closeCheckoutSideMenu
-
-      
-    }}>
+    <ShoppingCartContext.Provider
+      value={{
+        count,
+        setCount,
+        openProductDetail,
+        closeProductDetail,
+        isProductDetailOpen,
+        productToShow,
+        setProductToShow,
+        cartProducts,
+        setCartProducts,
+        openCheckoutSideMenu,
+        closeCheckoutSideMenu,
+      }}
+    >
       {children}
     </ShoppingCartContext.Provider>
-  )
-}
-
+  );
+};
