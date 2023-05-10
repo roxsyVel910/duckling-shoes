@@ -19,6 +19,8 @@ const CheckoutSideMenu = () => {
             onClick={() => context.closeCheckoutSideMenu()}></XMarkIcon>
         </div>
       </div>
+      <div className='px-6'>
+
       {
         context.cartProducts.map(product => (
             <OrderCard 
@@ -31,6 +33,7 @@ const CheckoutSideMenu = () => {
 
         ))
       }
+      </div>
     </aside>
   )
 }
