@@ -12,6 +12,17 @@ const CheckoutSideMenu = () => {
     const filteredProducts = context.cartProducts.filter(product => product.id != id)
     context.setCartProducts(filteredProducts)
   }
+  const handleCheckout = () => {
+    const orderToAdd = {
+        date: '01.02.23',
+        products: context.cartProducts,
+        totalPorducts: context.cartProducts.length,
+        totalPrice: totalPrice(context.cartProducts)
+    }
+    context.setOrder([ ...context.order, orderToAdd])
+    context.setCartProducts([])
+
+  }
 
 
   return (
@@ -46,6 +57,9 @@ const CheckoutSideMenu = () => {
         <span className="font-light">Total:</span>
         <span className="font-medium text-2xl">{totalPrice((context.cartProducts))}</span>
       </p>
+      <button onClick={() => handleCheckout()}>
+        checkout
+      </button>
 
       </div>
     </aside>
