@@ -9,13 +9,14 @@ const Card = (data) => {
     context.openProductDetail();
     context.setProductToShow(productDetail);
   };
+
   const addProductsToCart = (event, productData) => {
-    event.stopPropagation()
+    event.stopPropagation();
     context.setCount(context.count + 1);
     context.setCartProducts([...context.cartProducts, productData]);
-    context.openCheckoutSideMenu()
-    context.closeProductDetail()
-    console.log("cart:", context.cartProducts);
+    context.openCheckoutSideMenu();
+    context.closeProductDetail();
+    console.log("CART: ", context.cartProducts);
   };
 
   return (
@@ -29,7 +30,7 @@ const Card = (data) => {
         </span>
         <img
           className="w-full h-full object-cover rounded-lg"
-          src={data.data.images}
+          src={data.data.images[0]}
           alt={data.data.title}
         />
         <div

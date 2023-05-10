@@ -29,7 +29,7 @@ const App = () => {
       <BrowserRouter>
         <AppRoutes />
         <Navbar />
-        <CheckoutSideMenu />
+        <CheckoutSideMenu/>
       </BrowserRouter>
     </ShoppingCartProvider>
   );

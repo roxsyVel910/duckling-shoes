@@ -18,9 +18,9 @@ export const ShoppingCartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState([]);
 
   // Checkout side Menu · Open/Close
-  const [isCheckoutSideMenu, setIsCheckoutSideMenu] = useState(false);
-  const openCheckoutSideMenu = () => setIsCheckoutSideMenu(true);
-  const closeCheckoutSideMenu = () => setIsCheckoutSideMenu(false);
+  const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false);
+  const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
+  const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
 
   return (
     <ShoppingCartContext.Provider
@@ -36,6 +36,7 @@ export const ShoppingCartProvider = ({ children }) => {
         setCartProducts,
         openCheckoutSideMenu,
         closeCheckoutSideMenu,
+        isCheckoutSideMenuOpen
       }}
     >
       {children}
