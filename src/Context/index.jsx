@@ -51,6 +51,14 @@ export const ShoppingCartProvider = ({ children }) => {
   }, [items, searchByTitle]);
   console.log('djgdngf', filteredItems)
 
+
+  const filteredItemsByCategory = (items, searchByCategory) => {
+    return items?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()))
+  }
+
+ 
+
+
   return (
     <ShoppingCartContext.Provider
       value={{
