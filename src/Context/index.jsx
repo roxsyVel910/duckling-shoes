@@ -6,13 +6,13 @@ export const ShoppingCartProvider = ({ children }) => {
   // Shopping Cart · Increment quantity
   const [count, setCount] = useState(0);
   //get products
-  const [items, setItems] = useState(null)
+  const [items, setItems] = useState(null);
+  //get products
+  const [filteredItems, setFilteredItems] = useState(null);
 
-  useEffect(() => {
-    fetch('https://api.escuelajs.co/api/v1/products')
-      .then(response => response.json())
-      .then(data => setItems(data))
-  }, [])
+  // Get products by title
+  const [searchByTitle, setSearchByTitle] = useState(null);
+  console.log("searchByTitle: ", searchByTitle);
 
   // Product Detail · Open/Close
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
@@ -33,6 +33,24 @@ export const ShoppingCartProvider = ({ children }) => {
   const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
   const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
 
+  useEffect(() => {
+    fetch("https://api.escuelajs.co/api/v1/products")
+      .then((response) => response.json())
+      .then((data) => setItems(data));
+  }, []);
+
+  const filteredItemsByTitle = (items, searchByTitle) => {
+    return items?.filter((item) =>
+      item.title.toLowerCase().includes(searchByTitle.toLowerCase())
+    );
+  };
+
+  useEffect(() => {
+    if (searchByTitle)
+      setFilteredItems(filteredItemsByTitle(items, searchByTitle));
+  }, [items, searchByTitle]);
+  console.log('djgdngf', filteredItems)
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -48,10 +66,13 @@ export const ShoppingCartProvider = ({ children }) => {
         openCheckoutSideMenu,
         closeCheckoutSideMenu,
         isCheckoutSideMenuOpen,
-        order, 
+        order,
         setOrder,
         items,
-        setItems
+        setItems,
+        searchByTitle,
+        setSearchByTitle,
+        filteredItems
       }}
     >
       {children}
