@@ -8,6 +8,9 @@ import OrderCard from "../../Components/OrderCard";
 
 function MyOrder() {
   const context = useContext(ShoppingCartContext);
+  const currentPath = window.location.pathname
+  const index = currentPath.substring(currentPath.lastIndexOf('/')+1)
+  console.log(index)
 
   return (
     <Layout>
