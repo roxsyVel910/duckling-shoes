@@ -14,14 +14,18 @@ const CheckoutSideMenu = () => {
     context.setCartProducts(filteredProducts)
   }
   const handleCheckout = () => {
+
     const orderToAdd = {
         date: '01.02.23',
         products: context.cartProducts,
         totalPorducts: context.cartProducts.length,
         totalPrice: totalPrice(context.cartProducts)
     }
+    
     context.setOrder([ ...context.order, orderToAdd])
     context.setCartProducts([])
+    context.setSearchByTitle(null)
+
 
   }
 
